@@ -1,0 +1,1044 @@
+/* ==========================================================================
+   SYMPTOVITAL - Clean, Simple & Friendly Medical Health Assistant
+   Light White Theme by Default with Clean Teal & Slate Accents
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root {
+  /* Default Clean White Theme */
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-subtle: #f1f5f9;
+  --border-subtle: #e2e8f0;
+  --border-active: #0ea5e9;
+
+  /* Primary Calming Colors */
+  --teal-primary: #0d9488;
+  --teal-glow: rgba(13, 148, 136, 0.15);
+  --blue-primary: #0284c7;
+  --blue-glow: rgba(2, 132, 199, 0.15);
+
+  /* Triage Colors */
+  --triage-home: #16a34a;
+  --triage-home-bg: #f0fdf4;
+  --triage-home-border: #bbf7d0;
+
+  --triage-clinic: #d97706;
+  --triage-clinic-bg: #fffbeb;
+  --triage-clinic-border: #fde68a;
+
+  --triage-urgent: #dc2626;
+  --triage-urgent-bg: #fef2f2;
+  --triage-urgent-border: #fecaca;
+
+  /* Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-highlight: #0d9488;
+
+  /* Layout tokens */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* Optional Dark Theme */
+[data-theme="dark"] {
+  --bg-main: #0b1120;
+  --bg-surface: #111827;
+  --bg-card: #1f2937;
+  --bg-card-hover: #374151;
+  --bg-subtle: #1e293b;
+  --border-subtle: #334155;
+  --border-active: #38bdf8;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-highlight: #2dd4bf;
+
+  --triage-home-bg: rgba(22, 163, 74, 0.15);
+  --triage-clinic-bg: rgba(217, 119, 6, 0.15);
+  --triage-urgent-bg: rgba(220, 38, 38, 0.15);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 4rem;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--teal-primary), var(--blue-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 12px var(--teal-glow);
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.brand-tagline {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  border-color: var(--teal-primary);
+  color: var(--teal-primary);
+}
+
+/* Quick Example Buttons */
+.demo-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.demo-pill {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demo-pill:hover {
+  background: var(--teal-primary);
+  color: #fff;
+  border-color: var(--teal-primary);
+}
+
+/* Progress Stepper */
+.stepper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.step-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1.15rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.step-card.active {
+  opacity: 1;
+  border-color: var(--teal-primary);
+  box-shadow: 0 4px 14px var(--teal-glow);
+}
+
+.step-card.completed {
+  opacity: 0.9;
+  border-color: var(--triage-home);
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.step-card.active .step-number {
+  background: var(--teal-primary);
+  color: #fff;
+}
+
+.step-card.completed .step-number {
+  background: var(--triage-home);
+  color: #fff;
+}
+
+.step-info h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.step-info p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Sections */
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* Panels */
+.simple-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.intake-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+}
+
+.panel-header {
+  margin-bottom: 1.5rem;
+}
+
+.panel-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.panel-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.option-pill-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pill-radio {
+  display: none;
+}
+
+.pill-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.95rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-radio:checked + .pill-label {
+  background: var(--triage-home-bg);
+  border-color: var(--teal-primary);
+  color: var(--teal-primary);
+  font-weight: 600;
+}
+
+/* Highlights Box */
+.highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.85rem;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+}
+
+.highlight-icon {
+  font-size: 1.4rem;
+  color: var(--teal-primary);
+}
+
+.highlight-item h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.highlight-item p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* STEP 2: Symptom Selector Layout */
+.symptom-intake-layout {
+  display: grid;
+  grid-template-columns: 320px 1.2fr 360px;
+  gap: 1.5rem;
+}
+
+/* Body Map */
+.body-map-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-map-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--teal-primary);
+  background: var(--triage-home-bg);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+
+.body-map-svg-container {
+  width: 100%;
+  max-width: 200px;
+  height: 310px;
+  display: flex;
+  justify-content: center;
+}
+
+.anatomical-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.body-silhouette-bg {
+  fill: #f1f5f9;
+  stroke: #cbd5e1;
+  stroke-width: 1.5;
+}
+
+.body-zone {
+  cursor: pointer;
+}
+
+.zone-shape {
+  fill: rgba(13, 148, 136, 0.08);
+  stroke: rgba(13, 148, 136, 0.4);
+  stroke-width: 1.5;
+  stroke-dasharray: 4, 3;
+  transition: all 0.2s ease;
+}
+
+.zone-hotspot {
+  fill: var(--teal-primary);
+}
+
+.zone-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  fill: #0f172a;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.body-zone:hover .zone-shape,
+.body-zone.selected .zone-shape {
+  fill: rgba(13, 148, 136, 0.25);
+  stroke: var(--teal-primary);
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+
+.body-zone:hover .zone-label,
+.body-zone.selected .zone-label {
+  opacity: 1;
+}
+
+.body-map-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.region-pill {
+  padding: 0.35rem 0.7rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.region-pill.active,
+.region-pill:hover {
+  background: var(--teal-primary);
+  color: #fff;
+  border-color: var(--teal-primary);
+}
+
+/* Symptom Pool Search & Cards */
+.symptom-search-bar {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px var(--teal-glow);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.symptoms-pool {
+  max-height: 480px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 0.4rem;
+}
+
+.symptom-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.95rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.symptom-card:hover {
+  background: var(--bg-subtle);
+  border-color: var(--teal-primary);
+}
+
+.symptom-card.selected {
+  border-color: var(--teal-primary);
+  background: var(--triage-home-bg);
+}
+
+.symptom-card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.symptom-card-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.badge-redflag {
+  color: var(--triage-urgent);
+  font-weight: 700;
+}
+
+/* Right Selected Symptoms Tray */
+.active-symptoms-tray {
+  display: flex;
+  flex-direction: column;
+}
+
+.tray-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tray-count-badge {
+  background: var(--teal-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.active-symptoms-list {
+  max-height: 440px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+}
+
+.empty-state i {
+  font-size: 2.2rem;
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+
+.active-symptom-item {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+}
+
+.active-symptom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.active-symptom-header h5 {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.btn-remove-symptom {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.btn-remove-symptom:hover {
+  color: var(--triage-urgent);
+}
+
+/* Timeline Day Input & Severity for each symptom */
+.symptom-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.input-label-sm {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.select-sm, .input-days-sm {
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  outline: none;
+}
+
+/* Buttons */
+.step-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--teal-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #0f766e;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-secondary);
+}
+
+/* STEP 3: Results & Timeline Probability Dashboard */
+.emergency-banner {
+  background: var(--triage-urgent-bg);
+  border: 1px solid var(--triage-urgent-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.emergency-icon {
+  font-size: 2rem;
+  color: var(--triage-urgent);
+}
+
+.emergency-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--triage-urgent);
+}
+
+.emergency-content p {
+  font-size: 0.85rem;
+  color: #991b1b;
+}
+
+.btn-urgent-call {
+  padding: 0.65rem 1.25rem;
+  background: var(--triage-urgent);
+  color: white;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+/* Triage Bar */
+.triage-hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.triage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.triage-badge.home {
+  background: var(--triage-home-bg);
+  color: var(--triage-home);
+  border: 1px solid var(--triage-home-border);
+}
+
+.triage-badge.clinic {
+  background: var(--triage-clinic-bg);
+  color: var(--triage-clinic);
+  border: 1px solid var(--triage-clinic-border);
+}
+
+.triage-badge.urgent {
+  background: var(--triage-urgent-bg);
+  color: var(--triage-urgent);
+  border: 1px solid var(--triage-urgent-border);
+}
+
+/* Results Grid */
+.results-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1.5rem;
+}
+
+.disease-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.disease-card:hover {
+  border-color: var(--teal-primary);
+  transform: translateY(-2px);
+}
+
+.disease-card.selected-active {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 2px var(--teal-glow), var(--shadow-md);
+}
+
+.disease-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.disease-title-group h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.match-percentage-badge {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--teal-primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.match-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.match-bar-fill {
+  height: 100%;
+  background: var(--teal-primary);
+  border-radius: 4px;
+}
+
+/* Timeline Probability Stage Box on Card */
+.timeline-stage-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* Disease Detail & Trajectory Panel */
+.disease-detail-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-section {
+  margin-bottom: 1.5rem;
+}
+
+.detail-section h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+/* Patient's Current Timeline Stage Indicator */
+.current-stage-card {
+  background: var(--triage-home-bg);
+  border: 1px solid var(--triage-home-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.stage-title {
+  font-weight: 700;
+  color: var(--teal-primary);
+  font-size: 0.88rem;
+}
+
+.timeline-track {
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 2px solid #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.timeline-node {
+  position: relative;
+}
+
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.25rem - 5px);
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal-primary);
+}
+
+.timeline-phase-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.timeline-phase-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.care-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.care-list li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.care-list li i {
+  color: var(--triage-home);
+  margin-top: 3px;
+}
+
+.care-list.avoid li i {
+  color: var(--triage-urgent);
+}
+
+/* Doctor Sheet Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+}
+
+.doctor-sheet {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .doctor-sheet, .doctor-sheet * {
+    visibility: visible;
+  }
+  .doctor-sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .modal-actions, .app-header, .demo-bar, .stepper {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .symptom-intake-layout, .results-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
